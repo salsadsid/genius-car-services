@@ -13,12 +13,12 @@ const Experts = () => {
         { id: 3, name: "Leo DeCaprio", img: expert3 },
         { id: 4, name: "Thomas Shelby", img: expert4 },
         { id: 5, name: "Robert Downey JR", img: expert5 },
-        { id: 6, name: "Tom Cruise", img: expert6 },
+        { id: 6, name: "Ema Watson", img: expert6 },
     ]
     return (
-        <div className='container'>
+        <div className='container mt-3'>
             <h1 className='text-primary text-center'>Our Experts</h1>
-            <div className='row gy-3 gx-3'>
+            <div className='row'>
                 {
                     experts.map(expert => <Expert
                         key={expert.id}
