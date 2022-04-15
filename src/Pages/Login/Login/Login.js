@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -30,19 +31,17 @@ const Login = () => {
         navigate('/register')
     }
     return (
-        <div>
+        <div className='w-50 mx-auto'>
             <h2 className='text-center text-primary mt-3'>Please Login</h2>
-            <Form onSubmit={handleSubmit} className='w-50 mx-auto'>
+            <Form onSubmit={handleSubmit} className='w-100'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
+
                     <Form.Control ref={emailRef} type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
+
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -53,6 +52,7 @@ const Login = () => {
                 </Button>
                 <p className='mt-3'>New To Genius Car Services? <Link to='/register' className='text-danger text-decoration-none' onClick={navigateToRegister}>Please Register!</Link></p>
             </Form>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
