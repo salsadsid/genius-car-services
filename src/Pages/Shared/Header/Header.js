@@ -32,11 +32,16 @@ const Header = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <span>{user?.displayName || user?.email}</span>
-
+                            {
+                                user && <>
+                                    <Nav.Link as={Link} to="home">{user?.displayName || user?.email}</Nav.Link>
+                                    <Nav.Link as={Link} to="addservice">Add Service</Nav.Link>
+                                    <Nav.Link as={Link} to="manage">Manage</Nav.Link>
+                                </>
+                            }
                             <Nav.Link as={Link} to="about">About</Nav.Link>
                             {user ?
-                                <button className='btn btn-secondary' onClick={handleSignout}>Sign out</button>
+                                <button className='btn btn-danger' onClick={handleSignout}>Sign out</button>
                                 :
                                 <Nav.Link as={Link} to="login">
                                     Login
