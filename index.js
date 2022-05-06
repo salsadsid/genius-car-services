@@ -100,6 +100,9 @@ run().catch(console.dir)
 app.get('/', (req, res) => {
     res.send("Genius Car Services Server");
 })
+app.get('/hero', (req, res) => {
+    res.send("Genius Car Services Server");
+})
 
 app.listen(port, () => {
     console.log("Listening on Genius Car Services Server in", port);
