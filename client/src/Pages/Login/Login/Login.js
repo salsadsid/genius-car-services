@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -32,7 +32,19 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true });
     }
-
+   if(user){
+    const currentUser={
+        email:user.email
+    }
+    console.log(currentUser)
+    fetch("http://localhost:5000/login",{
+        method:"POST",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(currentUser)
+    }).then(res=>res.json()).then(data=>console.log(data))
+   }
     const handleSubmit = event => {
         event.preventDefault()
 
